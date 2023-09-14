@@ -34,7 +34,7 @@ if (process.env.NODE_ENV === 'development') {
 
 app.use(
   cors({
-    origin: ['https://fikri-jobtracker.vercel.app'],
+    origin: ['https://fikri-jobtracker.vercel.app', 'http://localhost:5000'],
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
     credentials: true,
   })
