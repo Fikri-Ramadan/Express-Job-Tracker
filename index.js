@@ -40,8 +40,6 @@ app.use(
   })
 );
 
-app.set('trust proxy', 1);
-
 app.use(cookieParser());
 app.use(Express.static(path.resolve(__dirname, './public')));
 app.use(Express.json());
