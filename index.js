@@ -1,3 +1,4 @@
+import * as dotenv from 'dotenv';
 import 'express-async-errors';
 import Express from 'express';
 import cors from 'cors';
@@ -5,7 +6,8 @@ import morgan from 'morgan';
 import mongoose from 'mongoose';
 import cloudinary from 'cloudinary';
 import cookieParser from 'cookie-parser';
-import * as dotenv from 'dotenv';
+import helmet from 'helmet';
+import ExpressMongoSanitize from 'express-mongo-sanitize';
 
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
@@ -32,6 +34,9 @@ if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
 
+// Security Purpose
+app.use(helmet());
+app.use(ExpressMongoSanitize());
 app.use(
   cors({
     origin: ['https://fikri-jobtracker.vercel.app', 'http://localhost:5000'],

@@ -320,6 +320,16 @@ express-async-errors@3.1.1:
   resolved "https://registry.yarnpkg.com/express-async-errors/-/express-async-errors-3.1.1.tgz#6053236d61d21ddef4892d6bd1d736889fc9da41"
   integrity sha512-h6aK1da4tpqWSbyCa3FxB/V6Ehd4EEB15zyQq9qe75OZBp0krinNKuH4rAY+S/U/2I36vdLAUFSjQJ+TFmODng==
 
+express-mongo-sanitize@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/express-mongo-sanitize/-/express-mongo-sanitize-2.2.0.tgz#c8c2d45e137f213950f70bf586704e0db5cfe356"
+  integrity sha512-PZBs5nwhD6ek9ZuP+W2xmpvcrHwXZxD5GdieX2dsjPbAbH4azOkrHbycBud2QRU+YQF1CT+pki/lZGedHgo/dQ==
+
+express-rate-limit@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/express-rate-limit/-/express-rate-limit-7.0.0.tgz#606d393bebf62f2f44d98d76330151587015cba0"
+  integrity sha512-zKMQ9meikj7j3ILeVvHIaBejAYljgDBtGuCfbzNS2d0VCW4s68ONdtEhBJnOGW/Ty1wGeNXgC4m/C1bBUIX0LA==
+
 express-validator@7.0.1:
   version "7.0.1"
   resolved "https://registry.yarnpkg.com/express-validator/-/express-validator-7.0.1.tgz#435fac6b5fa838763f78eca05d2206317b92106e"
@@ -443,6 +453,11 @@ has@^1.0.3:
   integrity sha512-f2dvO0VU6Oej7RkWJGrehjbzMAjFp5/VKPp5tTpWIV4JHHZK1/BxbFRtf/siA2SWTe09caDmVtYYzWEIbBS4zw==
   dependencies:
     function-bind "^1.1.1"
+
+helmet@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/helmet/-/helmet-7.0.0.tgz#ac3011ba82fa2467f58075afa58a49427ba6212d"
+  integrity sha512-MsIgYmdBh460ZZ8cJC81q4XJknjG567wzEmv46WOBblDb6TUd3z8/GhgmsM9pn8g2B80tAJ4m5/d3Bi1KrSUBQ==
 
 http-errors@2.0.0:
   version "2.0.0"
