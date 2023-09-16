@@ -9,6 +9,10 @@ import cookieParser from 'cookie-parser';
 import helmet from 'helmet';
 import ExpressMongoSanitize from 'express-mongo-sanitize';
 
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+import path from 'path';
+
 import { API_VERSION } from './utils/constants.js';
 import authRoutes from './routes/auth.routes.js';
 import userRoutes from './routes/user.routes.js';
@@ -17,6 +21,7 @@ import errorHandler from './middlewares/errorHandlerMiddleware.js';
 import { authenticateUser } from './middlewares/authMiddleware.js';
 
 const app = Express();
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 dotenv.config();
 cloudinary.config({
@@ -30,7 +35,11 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 // Security Purpose
-app.use(helmet());
+app.use(
+  helmet({
+    contentSecurityPolicy: false,
+  })
+);
 app.use(ExpressMongoSanitize());
 app.use(
   cors({
@@ -42,6 +51,7 @@ app.use(
 
 app.use(cookieParser());
 app.use(Express.json());
+app.use(Express.static(path.resolve(__dirname, './client')));
 
 // Auth routes
 app.use(`${API_VERSION}/auth`, authRoutes);
@@ -49,6 +59,10 @@ app.use(`${API_VERSION}/auth`, authRoutes);
 app.use(`${API_VERSION}/user`, authenticateUser, userRoutes);
 // Job routes
 app.use(`${API_VERSION}/jobs`, authenticateUser, jobRoutes);
+
+app.use('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, './client', 'index.html'));
+});
 
 // Error 404 routes not found
 app.use('*', (req, res, next) => {
