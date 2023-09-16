@@ -9,10 +9,6 @@ import cookieParser from 'cookie-parser';
 import helmet from 'helmet';
 import ExpressMongoSanitize from 'express-mongo-sanitize';
 
-import { dirname } from 'path';
-import { fileURLToPath } from 'url';
-import path from 'path';
-
 import { API_VERSION } from './utils/constants.js';
 import authRoutes from './routes/auth.routes.js';
 import userRoutes from './routes/user.routes.js';
@@ -21,7 +17,6 @@ import errorHandler from './middlewares/errorHandlerMiddleware.js';
 import { authenticateUser } from './middlewares/authMiddleware.js';
 
 const app = Express();
-const __dirname = dirname(fileURLToPath(import.meta.url));
 
 dotenv.config();
 cloudinary.config({
@@ -46,7 +41,6 @@ app.use(
 );
 
 app.use(cookieParser());
-app.use(Express.static(path.resolve(__dirname, './public')));
 app.use(Express.json());
 
 // Auth routes
