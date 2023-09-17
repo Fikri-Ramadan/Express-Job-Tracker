@@ -39,11 +39,11 @@ export const login = async (req, res) => {
 export const logout = (req, res) => {
   res
     .status(StatusCodes.OK)
-    .cookie('token', 'logout', {
+    .cookie('token', '', {
       httpOnly: true,
-      expires: new Date(Date.now()),
-      sameSite: 'none',
+      expires: new Date(0),
       secure: true,
+      sameSite: 'none',
     })
-    .json({ message: 'user logged out' });
+    .send();
 };
